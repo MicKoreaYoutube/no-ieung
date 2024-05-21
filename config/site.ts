@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig
 
 const siteConfig = {
-  name: "Next.js Template",
+  name: "도그라미 제거",
   description:
-    "A nextjs template by MicKoreaYoutube based on shadcn-ui",
+    "ㅣ 사ㅣ트를 사ㅛㅗㅏ면 도그라미를 ㅗㅛ과적ㅡ로 제거ㅗㅏㄹ 수 ㅣㅆ습니다!",
   mainNav: [
     {
       title: "Home",
@@ -15,55 +15,20 @@ const siteConfig = {
       },
       linkList: [
         {
-          title: "11번 링크",
-          description: "11번 설명",
-          href: "/11"
+          title: "ㅏ니 ㅅㅂ ㅣㅡ제거 ㅓ케 ㅗㅏ는거냐",
+          description: "ㅣㅡㅡㄹ 제거ㅗㅏ는 바법",
+          href: "/how-to-exclude-ieung"
         },
         {
-          title: "12번 링크",
-          description: "12번 설명",
-          href: "/12"
+          title: "ㅅㅂ ㅣ런거를 ㅙㅗㅐ?",
+          description: "ㅣㅡ 제거ㅢ ㅕㄱ사",
+          href: "/why-exclude-ieung"
         },
         {
-          title: "13번 링크",
-          description: "13번 설명",
-          href: "/13"
-        },
-      ]
-    },
-    {
-      title: "dashboard",
-      linkList: [
-        {
-          title: "Dashboard Home",
-          description: "/dashboard",
-          href: "/dashboard"
-        },
-        {
-          title: "22번 링크",
-          description: "22번 설명",
-          href: "/22"
-        },
-        {
-          title: "23번 링크",
-          description: "23번 설명",
-          href: "/23"
-        },
-        {
-          title: "24번 링크",
-          description: "24번 설명",
-          href: "/24"
-        },
-        {
-          title: "25번 링크",
-          description: "25번 설명",
-          href: "/25"
-        },
-        {
-          title: "26번 링크",
-          description: "26번 설명",
-          href: "/26"
-        },
+          title: "ㅣㅡ 제거 채티바ㅣ ㅣㅆ다고??",
+          description: "채티바 참ㅕ 바법",
+          href: "/exclude-ieung-chat"
+        }
       ]
     },
     {
@@ -73,77 +38,48 @@ const siteConfig = {
   ],
   footerContent: [
     {
-      title: "1번줄",
+      title: "ㅣㅡ제거",
       content: [
         {
-          title: "1번 내용",
-          href: "/11"
+          title: "법전 - 7차 개정",
+          href: "/law"
         },
         {
-          title: "2번 내용",
-          href: "/12"
+          title: "쉬ㅜㄴ 설며",
+          href: "/docs"
         },
         {
-          title: "3번 내용",
-          href: "/13"
+          title: "ㅙㅗㅐ",
+          href: "/why-exclude-ieung"
         }
       ]
     },
     {
-      title: "2번줄",
+      title: "더 재밌게 즐기기",
       content: [
         {
-          title: "1번 내용",
-          href: "/21"
-        },
-        {
-          title: "2번 내용",
-          href: "/22"
-        },
-        {
-          title: "3번 내용",
-          href: "/23"
-        }
-      ]
-    },
-    {
-      title: "3번줄",
-      content: [
-        {
-          title: "1번 내용",
-          href: "/31"
-        },
-        {
-          title: "2번 내용",
-          href: "/32"
-        },
-        {
-          title: "3번 내용",
-          href: "/33"
+          title: "채티바",
+          href: "/exclude-ieung-chat"
         }
       ]
     },
   ],
   FamilySurvice: [
     {
-      name: "1번 서비스",
+      name: "ㅓㄴㅓ 제작팀 모집 주 만ㅗ.관.부!",
       href: "/1s"
     },
     {
-      name: "2번 서비스",
+      name: "국가 제작팀 모집 주 만ㅗ.관.부!",
       href: "/2s"
     },
-    {
-      name: "3번 서비스",
-      href: "/3s"
-    }
   ],
   links: {
     shadcnTwitter: "https://twitter.com/shadcn",
     shadcnGithub: "https://github.com/shadcn/ui",
     shadcnuiDocs: "https://ui.shadcn.com",
     micInstagram: "https://instagram.com/leejunsibal",
-    micGithub: "https://github.com/MicKoreaYoutube/mic-next-template"
+    micGithub: "https://github.com/MicKoreaYoutube/no-ieung"
   },
   docsSidebarContent: [
     {
@@ -219,183 +155,6 @@ if (siteConfig.mainNav[0].mainLink) {
   siteConfig.mainNav[0].mainLink.title = siteConfig.name
   siteConfig.mainNav[0].mainLink.description = siteConfig.description
 }
-
-import { dashboardSidebarItem } from "@/types/sidebar"
-import { dropDownItem } from "@/types/dropdown"
-import { string } from "zod"
-
-export const dashboardSidebarContent: dashboardSidebarItem[] = [
-  {
-    icon: ["fas", "house"],
-    title: "Dashboard",
-    href: "/dashboard"
-  },
-  {
-    title: "2번줄",
-    content: [
-      {
-        title: "21번 내용",
-        href: "/21"
-      },
-      {
-        icon: ["far", "circle-check"],
-        title: "22번 내용",
-        href: "/22"
-      },
-      {
-        title: "23번 내용",
-        href: "/23"
-      }
-    ]
-  },
-  {
-    title: "3번줄",
-    content: [
-      {
-        title: "31번 내용",
-        href: "/31"
-      },
-      {
-        title: "32번 내용",
-        href: "/32"
-      },
-      {
-        title: "33번 내용",
-        href: "/33"
-      }
-    ]
-  },
-  {
-    title: "4번줄",
-    href: "/4",
-    shortcut: ""
-  },
-  {
-    title: "5번줄",
-    content: [
-      {
-        title: "51번 내용",
-        href: "/51"
-      },
-      {
-        title: "52번 내용",
-        href: "/52"
-      },
-      {
-        title: "53번 내용",
-        href: "/53"
-      }
-    ]
-  },
-]
-
-export const navDropDownContent: dropDownItem = {
-  label: "My Account",
-  content: [
-    [
-      {
-        icon: ["fas", "house"],
-        title: "11번 내용",
-        href: "/11",
-        shortcut: ""
-      },
-      {
-        icon: ["fas", "house"],
-        title: "12번 내용",
-        href: "/12",
-        shortcut: ""
-      },
-      {
-        icon: ["fas", "house"],
-        title: "13번 내용",
-        href: "/13",
-        shortcut: ""
-      }
-    ],
-    [
-      {
-        icon: ["fas", "house"],
-        title: "21번 내용",
-        href: "/21",
-        shortcut: ""
-      },
-      {
-        icon: ["fas", "house"],
-        title: "22번 내용",
-        href: "/22",
-        shortcut: "",
-        semiDropDown: [
-          [
-            {
-              icon: ["fas", "house"],
-              title: "22-1번 내용",
-              href: "/22-1",
-              shortcut: ""
-            }
-          ],
-          [
-            {
-              icon: ["fas", "house"],
-              title: "22-21번 내용",
-              href: "/22-21",
-              shortcut: ""
-            },
-            {
-              icon: ["fas", "house"],
-              title: "22-22번 내용",
-              href: "/22-22",
-              shortcut: ""
-            }
-          ],
-          [
-            {
-              icon: ["fas", "house"],
-              title: "22-23번 내용",
-              href: "/22-23",
-              shortcut: ""
-            }
-          ]
-        ]
-      },
-      {
-        icon: ["fas", "house"],
-        title: "23번 내용",
-        href: "/23",
-        shortcut: ""
-      }
-    ],
-    [
-      {
-        icon: ["fas", "house"],
-        title: "31번 내용",
-        href: "/31",
-        shortcut: ""
-      },
-      {
-        icon: ["fas", "house"],
-        title: "32번 내용",
-        href: "/32",
-        shortcut: ""
-      },
-      {
-        icon: ["fas", "house"],
-        title: "33번 내용",
-        href: "/33",
-        shortcut: ""
-      }
-    ],
-    [
-      {
-        icon: ["fas", "house"],
-        title: "로그아웃",
-        href: "/4",
-        shortcut: ""
-      }
-    ]
-  ]
-}
-
-const typetlqkf = [[{}, {}, {}], [{}, { semiDropDown: [[{}], [{}, {}, {}], [{}]] }], []]
 
 export { siteConfig }
 
