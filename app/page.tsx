@@ -36,7 +36,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 
-import { divideHangul } from "hangul-util"
+import { combineHangul, divideHangul } from "hangul-util"
 
 export default function Page() {
 
@@ -61,6 +61,7 @@ export default function Page() {
     let text: string[] | string = divideHangul(data.text, false)
     text = text.join("")
     text = text.replace(/ㅇ/g, ' ').replace(/ㅎ/g, 'ㅗ')
+    text = combineHangul(text)
     setResult(text)
   }
 
