@@ -44,8 +44,6 @@ export default function Page() {
 
   const [result, setResult] = useState("")
 
-  console.log(divideHangul("안녕!"))
-
   const exclueIeungSchema = z.object({
     text: z.string({
       required_error: "필수 입력란입니다."
