@@ -59,7 +59,7 @@ export default function Page() {
 
   function exclueIeung(data: z.infer<typeof exclueIeungSchema>) {
     let text: string[] | string = divideHangul(data.text, false)
-    text = text.join("")
+    text = text.join("​")
     text = text.replace(/ㅇ/g, "").replace(/ㅎ/g, "ㅗ").replace(/ㅀ/g, "ㄹ​ㅗ").replace(/ㄶ/g, "ㄴ​ㅗ")
     text = combineHangul(text)
     text = text.replace(/​/g, "")
