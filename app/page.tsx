@@ -24,6 +24,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
+import { Textarea } from "@/components/ui/textarea"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -44,25 +45,24 @@ export default function Page() {
 
   const [result, setResult] = useState("")
 
-  const exclueIeungSchema = z.object({
+  const excludeIeungSchema = z.object({
     text: z.string({
       required_error: "필수 입력란입니다."
     })
   })
 
-  const form = useForm<z.infer<typeof exclueIeungSchema>>({
-    resolver: zodResolver(exclueIeungSchema),
+  const form = useForm<z.infer<typeof excludeIeungSchema>>({
+    resolver: zodResolver(excludeIeungSchema),
     defaultValues: {
       text: "원정의쌤 너무 예뻐요! 사랑해요♥"
     }
   })
 
-  function exclueIeung(data: z.infer<typeof exclueIeungSchema>) {
+  function excludeIeung(data: z.infer<typeof excludeIeungSchema>) {
     let text: string[] | string = divideHangul(data.text, false)
     text = text.join("")
-    text = text.replace(/ㅇ/g, "​").replace(/ㅎ/g, "​ㅗ​").replace(/ㅀ/g, "ㄹ​ㅗ").replace(/ㄶ/g, "ㄴ​ㅗ")
+    text = text.replace(/ㅇ/g, "").replace(/ㅎ/g, "ㅗ").replace(/ㅀ/g, "ㄹ​ㅗ").replace(/ㄶ/g, "ㄴ​ㅗ")
     text = combineHangul(text)
-    text = text.replace(/​/g, "")
     setResult(text)
   }
 
@@ -140,7 +140,7 @@ export default function Page() {
                     <CardContent className="space-y-2">
                       <div>
                         <Form {...form}>
-                          <form onSubmit={form.handleSubmit(exclueIeung)} className="space-y-2">
+                          <form onSubmit={form.handleSubmit(excludeIeung)} className="space-y-2">
                             <FormField
                               control={form.control}
                               name="text"
@@ -148,7 +148,7 @@ export default function Page() {
                                 <FormItem>
                                   <FormLabel className="font-SUITE-Regular">ㅣㅂ력*</FormLabel>
                                   <FormControl className="font-SUITE-Regular">
-                                    <Input defaultValue="원정의쌤 너무 예뻐요! 사랑해요♥" {...field} />
+                                    <Textarea defaultValue="원정의쌤 너무 예뻐요! 사랑해요♥" {...field} />
                                   </FormControl>
                                   <FormMessage />
                                 </FormItem>
@@ -160,7 +160,7 @@ export default function Page() {
                       </div>
                       <div className="space-y-1">
                         <Label htmlFor="username">출력</Label>
-                        <Input id="username" defaultValue="ㅝㄴ저ㅢ쌤 너무 ㅖ뻐ㅛ! 사라ㅗㅐㅛ♥" value={result} className="font-SUITE-Regular" />
+                        <Textarea id="username" defaultValue="ㅝㄴ저ㅢ쌤 너무 ㅖ뻐ㅛ! 사라ㅗㅐㅛ♥" value={result} className="font-SUITE-Regular" />
                       </div>
                     </CardContent>
                   </Card>
