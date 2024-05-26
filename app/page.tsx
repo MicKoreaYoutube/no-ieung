@@ -62,6 +62,7 @@ export default function Page() {
     text = text.join("")
     text = text.replace(/ㅇ/g, "").replace(/ㅎ/g, "ㅗ").replace(/ㅀ/g, "ㄹ​ㅗ").replace(/ㄶ/g, "ㄴ​ㅗ")
     text = combineHangul(text)
+    text = text.replace(/​/g, "")
     setResult(text)
   }
 
