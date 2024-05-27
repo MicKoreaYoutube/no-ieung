@@ -59,10 +59,11 @@ export default function Page() {
   })
 
   function excludeIeung(data: z.infer<typeof excludeIeungSchema>) {
-    let text: string[] | string = divideHangul(data.text, false)
+    let text: string[] | string = data.text.split("").join("​")
+    text = divideHangul(text, false)
     text = text.join("")
-    text = text.replace(/ㅇ/g, "").replace(/ㅎ/g, "ㅗ").replace(/ㅀ/g, "ㄹ​ㅗ").replace(/ㄶ/g, "ㄴ​ㅗ")
-    text = combineHangul(text)
+    text = text.replaceAll(/ㅇ/g, "").replaceAll(/ㅎ/g, "ㅗ").replaceAll(/ㅀ/g, "ㄹ​ㅗ").replaceAll(/ㄶ/g, "ㄴ​ㅗ")
+    text = combineHangul(text).replaceAll(/​/g, "")
     setResult(text)
   }
 
@@ -158,9 +159,12 @@ export default function Page() {
                           </form>
                         </Form>
                       </div>
-                      <div className="space-y-1">
-                        <Label htmlFor="username">출력</Label>
-                        <Textarea id="username" defaultValue="ㅝㄴ저ㅢ쌤 너무 ㅖ뻐ㅛ! 사라ㅗㅐㅛ♥" value={result} className="font-SUITE-Regular" />
+                      <div className="space-y-2">
+                        <Label className="font-SUITE-Regular">출력</Label>
+                        <Textarea id="username" defaultValue="ㅝㄴ저ㅢ쌤 너무 ㅖ뻐ㅛ! 사라ㅗㅐㅛ♥" value={result} className="font-SUITE-Regular" disabled/>
+                        <Button className="font-TheJamsil5Bold" onClick={()=>{
+                          navigator.clipboard.writeText(result)
+                        }}>복사</Button>
                       </div>
                     </CardContent>
                   </Card>
