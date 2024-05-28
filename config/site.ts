@@ -41,7 +41,7 @@ const siteConfig = {
       title: "ㅣㅡ제거",
       content: [
         {
-          title: "법전 - 7차 개정",
+          title: "법전 - 9차 개저",
           href: "/law"
         },
         {
@@ -51,6 +51,19 @@ const siteConfig = {
         {
           title: "ㅙㅗㅐ",
           href: "/why-exclude-ieung"
+        }
+      ]
+    },
+    {
+      title: "개발",
+      content: [
+        {
+          title: "릴리스 노",
+          href: "/releaseNote"
+        },
+        {
+          title: "깃ㅗㅓ브",
+          href: "https://github.com/MicKoreaYoutube/no-ieung"
         }
       ]
     },

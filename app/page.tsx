@@ -58,13 +58,14 @@ export default function Page() {
     }
   })
 
-  function excludeIeung(data: z.infer<typeof excludeIeungSchema>) {
-    let text: string[] | string = data.text.split("").join("​")
-    text = divideHangul(text, false)
-    text = text.join("")
-    text = text.replaceAll(/ㅇ/g, "").replaceAll(/ㅎ/g, "ㅗ").replaceAll(/ㅀ/g, "ㄹ​ㅗ").replaceAll(/ㄶ/g, "ㄴ​ㅗ")
-    text = combineHangul(text).replaceAll(/​/g, "")
-    setResult(text)
+  function excludeIeung(originalText: string) {
+    let encryptedText: string[] | string = originalText.split("").join("​")
+    encryptedText = encryptedText.replaceAll(/ㅇ/g, "ㅣㅡ").replaceAll(/ㅎ/g, "ㅗㅣㅡㅗ")
+    encryptedText = divideHangul(encryptedText, false)
+    encryptedText = encryptedText.join("")
+    encryptedText = encryptedText.replaceAll(/ㅇ/g, "").replaceAll(/ㅎ/g, "ㅗ").replaceAll(/ㅀ/g, "ㄹ​ㅗ").replaceAll(/ㄶ/g, "ㄴ​ㅗ")
+    encryptedText = combineHangul(encryptedText).replaceAll(/​/g, "")
+    setResult(encryptedText)
   }
 
   return (
@@ -72,129 +73,97 @@ export default function Page() {
       <div className="bg-background">
         <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
           <div className="flex flex-col items-start gap-2">
-            <InView triggerOnce={true} threshold={1}>
+            <InView triggerOnce threshold={1}>
               {({ inView, ref }) => (
-                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl ${inView ? classToAdd : 'invisible'}`}
+                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-2xl font-extrabold leading-tight tracking-tighter md:text-4xl ${inView ? classToAdd : 'invisible'}`}
                   ref={ref}>
                   ㅣ 사ㅣ트를 사ㅛㅗㅏ면 도그라미를<br />
                   ㅗㅛ과적ㅡ로 제거ㅗㅏㄹ 수 ㅣㅆ습니다!
                 </h1>
               )}
             </InView>
-            <p className=" font-SUITE-Regular text-lg text-muted-foreground">
-              지금 바로 시도ㅗㅐ보세ㅛ!
-            </p>
+            <InView triggerOnce threshold={1}>
+              {({ inView, ref }) => (
+                <p className={`font-SUITE-Regular animate__animated text-lg text-muted-foreground ${inView ? classToAdd : 'invisible'}`} ref={ref}>
+                  지금 바로 시도ㅗㅐ보세ㅛ!
+                </p>
+              )}
+            </InView>
           </div>
         </section>
       </div>
       <div className="bg-foreground">
         <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
           <div className="flex flex-col items-start gap-2">
-            <InView triggerOnce={true} threshold={1}>
+            <InView triggerOnce threshold={1}>
               {({ inView, ref }) => (
-                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-3xl font-extrabold leading-tight tracking-tighter text-background md:text-4xl ${inView ? classToAdd : 'invisible'}`}
+                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-2xl font-extrabold leading-tight tracking-tighter text-background md:text-4xl ${inView ? classToAdd : 'invisible'}`}
                   ref={ref}>
                   ㅣㅡ를 ㅙ 제거ㅗㅏ냐고ㅛ? 저도 잘 모르겠ㅓㅛ!<br />
                 </h1>
               )}
             </InView>
-            <p className="font-SUITE-Regular text-lg text-muted-foreground">
-              ㅗㅏ지만 재밌죠?
-            </p>
+            <InView triggerOnce threshold={1}>
+              {({ inView, ref }) => (
+                <p className={`font-SUITE-Regular animate__animated text-lg text-muted-foreground ${inView ? classToAdd : 'invisible'}`} ref={ref}>
+                  ㅗㅏ지만 재밌죠?
+                </p>
+              )}
+            </InView>
           </div>
-          <div className="font-TheJamsil5Bold flex gap-4">
-            {/* <Link
-              href={siteConfig.links.shadcnuiDocs}
-              target="_blank"
-              rel="noreferrer"
-              className={buttonVariants({ variant: "defaultDark" })}
-            >
-              Documentation
-            </Link>
-            <Link
-              target="_blank"
-              rel="noreferrer"
-              href={siteConfig.links.micGithub}
-              className={buttonVariants({ variant: "outlineDark" })}
-            >
-              GitHub
-            </Link> */}
+          <div className="mt-6 flex flex-col space-y-3 md:grid md:grid-cols-2">
+            <InView triggerOnce={true} threshold={1}>
+              {({ inView, ref }) => (
+                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-xl font-extrabold leading-tight tracking-tighter text-background md:text-4xl ${inView ? classToAdd : 'invisible'}`}
+                  ref={ref}>
+                  ㅣㅡㅡㄹ 제거ㅗㅏ는 바법!<br />
+                  <br />
+                  1{")"}기본적ㅣㄴ 바법<br />
+                  예뻐요♥ -{">"} ㅖ뻐ㅛ♥<br />
+                  <br />
+                  2{")"}종성<br />
+                  원정의쌤♥ -{">"} ㅝㄴ저ㅢ쌤♥<br />
+                  <br />
+                  3{")"}ㅎㅡㄴ?<br />
+                  ㅎ -{">"} ㅗ(ㅎㅔ서 도그라미를 뺀 모ㅑㅣㅁ)
+                </h1>
+              )}
+            </InView>
+            <InView triggerOnce threshold={1}>
+              {({ inView, ref }) => (
+                <Tabs defaultValue="ㅏㅁㅗㅗㅗㅘ" className={`animate__animated block max-w-[400px] md:ml-auto md:w-[400px] ${inView ? 'animate__bounceIn' : 'invisible'}`} ref={ref}>
+                  <TabsList className="font-SUITE-Regular grid w-full grid-cols-1">
+                    <TabsTrigger value="ㅏㅁㅗㅗㅗㅘ">ㅏㅁㅗㅗㅗㅘ</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="ㅏㅁㅗㅗㅗㅘ">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="font-KBO-Dia-Gothic_bold">ㅏㅁㅗㅗㅗㅘ</CardTitle>
+                        <CardDescription className="font-SUITE-Regular">
+                          ㅣㅡ를 제거ㅗㅏㅂ니다.
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-2">
+                        <div className="space-y-2">
+                          <Label className="font-SUITE-Regular">ㅣㅂ력</Label>
+                          <Textarea id="username" defaultValue="원정의쌤 너무 예뻐요! 사랑해요♥" className="font-SUITE-Regular" onChange={(e) => {
+                            excludeIeung(e.target.value)
+                          }} />
+                        </div>
+                        <div className="space-y-2">
+                          <Label className="font-SUITE-Regular">출력</Label>
+                          <Textarea id="username" defaultValue="ㅝㄴ저ㅢ쌤 너무 ㅖ뻐ㅛ! 사라ㅗㅐㅛ♥" value={result} className="font-SUITE-Regular" disabled />
+                          <Button className="font-TheJamsil5Bold" onClick={() => {
+                            navigator.clipboard.writeText(result)
+                          }}>복사</Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                </Tabs>
+              )}
+            </InView>
           </div>
-
-          <InView triggerOnce={true} threshold={1}>
-            {({ inView, ref }) => (
-              <Tabs defaultValue="ㅏㅁㅗㅗㅗㅘ" className={`animate__animated mx-auto block max-w-[400px] md:w-[400px] ${inView ? classToAdd : 'invisible'}`} ref={ref}>
-                <TabsList className="font-SUITE-Regular grid w-full grid-cols-1">
-                  <TabsTrigger value="ㅏㅁㅗㅗㅗㅘ">ㅏㅁㅗㅗㅗㅘ</TabsTrigger>
-                  {/*<TabsTrigger value="복ㅗㅗㅗ" className="pointer-events-auto hover:cursor-not-allowed" onClick={(e: React.MouseEvent<HTMLButtonElement>)=>{
-                    e.preventDefault()
-                  }}>복ㅗㅗㅗ</TabsTrigger>*/}
-                </TabsList>
-                <TabsContent value="ㅏㅁㅗㅗㅗㅘ">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="font-KBO-Dia-Gothic_bold">ㅏㅁㅗㅗㅗㅘ</CardTitle>
-                      <CardDescription className="font-SUITE-Regular">
-                        ㅣㅡ를 제거ㅗㅏㅂ니다.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-2">
-                      <div>
-                        <Form {...form}>
-                          <form onSubmit={form.handleSubmit(excludeIeung)} className="space-y-2">
-                            <FormField
-                              control={form.control}
-                              name="text"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="font-SUITE-Regular">ㅣㅂ력*</FormLabel>
-                                  <FormControl className="font-SUITE-Regular">
-                                    <Textarea defaultValue="원정의쌤 너무 예뻐요! 사랑해요♥" {...field} />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            <Button type="submit" className="font-TheJamsil5Bold">ㅏㅁㅗㅗㅗㅘ</Button>
-                          </form>
-                        </Form>
-                      </div>
-                      <div className="space-y-2">
-                        <Label className="font-SUITE-Regular">출력</Label>
-                        <Textarea id="username" defaultValue="ㅝㄴ저ㅢ쌤 너무 ㅖ뻐ㅛ! 사라ㅗㅐㅛ♥" value={result} className="font-SUITE-Regular" disabled/>
-                        <Button className="font-TheJamsil5Bold" onClick={()=>{
-                          navigator.clipboard.writeText(result)
-                        }}>복사</Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                {/*<TabsContent value="복ㅗㅗㅗ">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Password</CardTitle>
-                      <CardDescription>
-                        Change your password here. After saving, you&#39ll be logged out.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-2">
-                      <div className="space-y-1">
-                        <Label htmlFor="current">Current password</Label>
-                        <Input id="current" type="password" />
-                      </div>
-                      <div className="space-y-1">
-                        <Label htmlFor="new">New password</Label>
-                        <Input id="new" type="password" />
-                      </div>
-                    </CardContent>
-                    <CardFooter>
-                      <Button>Save password</Button>
-                    </CardFooter>
-                  </Card>
-                </TabsContent>*/}
-              </Tabs>
-            )}
-          </InView>
         </section>
       </div>
     </>

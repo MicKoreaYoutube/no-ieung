@@ -43,7 +43,7 @@ export function SiteFooter() {
               {siteConfig.description}
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 sm:gap-24">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-3 md:gap-24">
             {siteConfig.footerContent?.length ? (
               <>
                 {siteConfig.footerContent?.map(
