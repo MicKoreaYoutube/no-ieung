@@ -28,16 +28,9 @@ import { Textarea } from "@/components/ui/textarea"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
 
 import { combineHangul, divideHangul } from "hangul-util"
+import { formatText } from "../ts/excludeIeung-util"
 
 export default function Page() {
 
@@ -67,6 +60,21 @@ export default function Page() {
     encryptedText = combineHangul(encryptedText).replaceAll(/​/g, "")
     setResult(encryptedText)
   }
+
+  const how_to_excludeIeung = `ㅣㅡㅡㄹ 제거ㅗㅏ는 바법!
+                  
+  1)기본적ㅣㄴ 바법
+  예뻐요♥ -> ㅖ뻐ㅛ♥
+  
+  2)종성
+  원정의쌤♥ -> ㅝㄴ저ㅢ쌤♥
+  
+  3)ㅎㅡㄴ?
+  사랑해요♥ -> 사라ㅗㅐㅛ♥(ㅎㅡㄹ ㅗ로 쓰면 됨. 그러나 해가 ㅗㅐㅣ듯ㅣ ㅣ "ㅗ"는 독립ㅗㅐ서 적ㅓㅑ ㅗㅏㅁ)
+  
+  4)ㅇ, ㅎ 초서 독립 사ㅛㅡㄴ?
+  정의쌤 존예임 ㅇㅇ -> 저ㅢ쌤 존ㅖㅣㅁ ㅣㅡㅣㅡ
+  정의쌤 사랑해요ㅎㅎ -> 저ㅢ쌤 사라ㅗㅐㅛㅗㅣㅡㅗㅗㅣㅡㅗ`
 
   return (
     <>
@@ -114,22 +122,9 @@ export default function Page() {
           <div className="mt-6 flex flex-col space-y-3 md:grid md:grid-cols-2">
             <InView triggerOnce={true} threshold={1}>
               {({ inView, ref }) => (
-                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-xl font-extrabold leading-tight tracking-tighter text-background md:text-4xl ${inView ? classToAdd : 'invisible'}`}
+                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-xl font-extrabold leading-tight tracking-tighter text-background ${inView ? classToAdd : 'invisible'}`}
                   ref={ref}>
-                  ㅣㅡㅡㄹ 제거ㅗㅏ는 바법!<br />
-                  <br />
-                  1{")"}기본적ㅣㄴ 바법<br />
-                  예뻐요♥ -{">"} ㅖ뻐ㅛ♥<br />
-                  <br />
-                  2{")"}종성<br />
-                  원정의쌤♥ -{">"} ㅝㄴ저ㅢ쌤♥<br />
-                  <br />
-                  3{")"}ㅎㅡㄴ?<br />
-                  사랑해요♥ -{">"} 사라ㅗㅐㅛ♥(ㅎㅡㄹ ㅗ로 쓰면 됨. 그러나 해가 ㅗㅐㅣ듯ㅣ ㅣ &#34ㅗ&#34는 독립ㅗㅐ서 적ㅓㅑ ㅗㅏㅁ)<br />
-                  <br />
-                  4{")"}ㅇ, ㅎ 초서 독립 사ㅛㅡㄴ?<br />
-                  정의쌤 존예임 ㅇㅇ -{">"} 저ㅢ쌤 존ㅖㅣㅁ ㅣㅡㅣㅡ<br />
-                  정의쌤 사랑해요ㅎㅎ -{">"} 저ㅢ쌤 사라ㅗㅐㅛㅗㅣㅡㅗㅗㅣㅡㅗ
+                  {formatText(how_to_excludeIeung)}
                 </h1>
               )}
             </InView>

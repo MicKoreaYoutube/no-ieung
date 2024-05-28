@@ -58,7 +58,7 @@ const siteConfig = {
       title: "개발",
       content: [
         {
-          title: "릴리스 노",
+          title: "릴리스 노트",
           href: "/releaseNote"
         },
         {

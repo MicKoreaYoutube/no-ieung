@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { formatText } from "../../ts/excludeIeung-util"
 
 import { Textarea } from "@/components/ui/textarea"
 
@@ -104,18 +104,7 @@ export default function TermsPage() {
 
     마지막ㅡ로, 바자ㅡㄴ 민주주ㅢㅘ 고저ㅢ ㅝㄴ칙ㅡㄹ 지킴ㅡㄹ 매세ㅗㅏㄴ다.
 
-    -ㅣ로써 ㅣ 규칙ㅡㄹ 마무리ㅗㅏㄴ다.
-
-    _____________________________`
-
-  function formatText(text: string) {
-    return text.split('\n').map((line, index) => (
-      <React.Fragment key={index}>
-        {line}
-        <br />
-      </React.Fragment>
-    ))
-  }
+    -ㅣ로써 ㅣ 규칙ㅡㄹ 마무리ㅗㅏㄴ다.`
 
   return (
     <section className="container grid gap-7 py-20 md:px-40">
