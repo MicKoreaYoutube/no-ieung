@@ -119,7 +119,7 @@ export default function Page() {
               )}
             </InView>
           </div>
-          <div className="mt-6 flex flex-col space-y-3 md:grid md:grid-cols-2">
+          <div className="mt-3 flex flex-col space-y-6 md:mt-6 md:grid md:grid-cols-2 md:space-y-0">
             <InView triggerOnce={true} threshold={1}>
               {({ inView, ref }) => (
                 <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-xl font-extrabold leading-tight tracking-tighter text-background md:text-2xl ${inView ? classToAdd : 'invisible'}`}
@@ -130,7 +130,7 @@ export default function Page() {
             </InView>
             <InView triggerOnce threshold={1}>
               {({ inView, ref }) => (
-                <Tabs defaultValue="ㅏㅁㅗㅗㅗㅘ" className={`animate__animated block max-w-[400px] md:ml-auto md:w-[400px] ${inView ? 'animate__bounceIn' : 'invisible'}`} ref={ref}>
+                <Tabs defaultValue="ㅏㅁㅗㅗㅗㅘ" className={`animate__animated block w-full md:ml-auto md:w-[400px] ${inView ? 'animate__bounceIn' : 'invisible'}`} ref={ref}>
                   <TabsList className="font-SUITE-Regular grid w-full grid-cols-1">
                     <TabsTrigger value="ㅏㅁㅗㅗㅗㅘ">ㅏㅁㅗㅗㅗㅘ</TabsTrigger>
                   </TabsList>
