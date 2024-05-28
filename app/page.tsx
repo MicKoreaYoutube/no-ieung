@@ -122,7 +122,7 @@ export default function Page() {
           <div className="mt-6 flex flex-col space-y-3 md:grid md:grid-cols-2">
             <InView triggerOnce={true} threshold={1}>
               {({ inView, ref }) => (
-                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-xl font-extrabold leading-tight tracking-tighter text-background ${inView ? classToAdd : 'invisible'}`}
+                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-xl font-extrabold leading-tight tracking-tighter text-background md:text-2xl ${inView ? classToAdd : 'invisible'}`}
                   ref={ref}>
                   {formatText(how_to_excludeIeung)}
                 </h1>
