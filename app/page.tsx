@@ -36,7 +36,7 @@ export default function Page() {
 
   const classToAdd = "animate__fadeInUp"
 
-  const [result, setResult] = useState("")
+  const [result, setResult] = useState("ㅝㄴ저ㅢ쌤 너무 ㅖ뻐ㅛ! 사라ㅗㅐㅛ♥")
 
   const excludeIeungSchema = z.object({
     text: z.string({
@@ -145,13 +145,13 @@ export default function Page() {
                       <CardContent className="space-y-2">
                         <div className="space-y-2">
                           <Label className="font-SUITE-Regular">ㅣㅂ력</Label>
-                          <Textarea id="username" defaultValue="원정의쌤 너무 예뻐요! 사랑해요♥" className="font-SUITE-Regular" onChange={(e) => {
+                          <Textarea defaultValue="원정의쌤 너무 예뻐요! 사랑해요♥" className="font-SUITE-Regular" onChange={(e) => {
                             excludeIeung(e.target.value)
                           }} />
                         </div>
                         <div className="space-y-2">
                           <Label className="font-SUITE-Regular">출력</Label>
-                          <Textarea id="username" defaultValue="ㅝㄴ저ㅢ쌤 너무 ㅖ뻐ㅛ! 사라ㅗㅐㅛ♥" value={result} className="font-SUITE-Regular" disabled />
+                          <Textarea value={result} className="font-SUITE-Regular" disabled />
                           <Button className="font-TheJamsil5Bold" onClick={() => {
                             navigator.clipboard.writeText(result)
                           }}>복사</Button>
