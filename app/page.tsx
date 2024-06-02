@@ -83,7 +83,7 @@ export default function Page() {
           <div className="flex flex-col items-start gap-2">
             <InView triggerOnce threshold={1}>
               {({ inView, ref }) => (
-                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-2xl font-extrabold leading-tight tracking-tighter md:text-4xl ${inView ? classToAdd : 'invisible'}`}
+                <h1 className={`font-KBO-Dia-Gothic_bold animate__animated text-2xl font-extrabold leading-tight tracking-tighter md:text-4xl ${inView ? classToAdd : 'invisible'}`}
                   ref={ref}>
                   ㅣ 사ㅣ트를 사ㅛㅗㅏ면 도그라미를<br />
                   ㅗㅛ과적ㅡ로 제거ㅗㅏㄹ 수 ㅣㅆ습니다!
@@ -105,7 +105,7 @@ export default function Page() {
           <div className="flex flex-col items-start gap-2">
             <InView triggerOnce threshold={1}>
               {({ inView, ref }) => (
-                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-2xl font-extrabold leading-tight tracking-tighter text-background md:text-4xl ${inView ? classToAdd : 'invisible'}`}
+                <h1 className={`font-KBO-Dia-Gothic_bold animate__animated text-2xl font-extrabold leading-tight tracking-tighter text-background md:text-4xl ${inView ? classToAdd : 'invisible'}`}
                   ref={ref}>
                   ㅣㅡ를 ㅙ 제거ㅗㅏ냐고ㅛ? 저도 잘 모르겠ㅓㅛ!<br />
                 </h1>
@@ -120,15 +120,15 @@ export default function Page() {
             </InView>
           </div>
           <div className="mt-3 flex flex-col space-y-6 md:mt-6 md:grid md:grid-cols-2 md:space-y-0">
-            <InView triggerOnce={true} threshold={1}>
+            <InView triggerOnce={true} threshold={0.6}>
               {({ inView, ref }) => (
-                <h1 className={`font-KBO-Dia-Gothic_bold content animate__animated text-xl font-extrabold leading-tight tracking-tighter text-background md:text-2xl ${inView ? classToAdd : 'invisible'}`}
+                <h1 className={`font-KBO-Dia-Gothic_bold animate__animated text-xl font-extrabold leading-tight tracking-tighter text-background md:text-2xl ${inView ? classToAdd : 'invisible'}`}
                   ref={ref}>
                   {formatText(how_to_excludeIeung)}
                 </h1>
               )}
             </InView>
-            <InView triggerOnce threshold={1}>
+            <InView triggerOnce threshold={0.6}>
               {({ inView, ref }) => (
                 <Tabs defaultValue="ㅏㅁㅗㅗㅗㅘ" className={`animate__animated block w-full md:ml-auto md:w-[400px] ${inView ? 'animate__bounceIn' : 'invisible'}`} ref={ref}>
                   <TabsList className="font-SUITE-Regular grid w-full grid-cols-1">
