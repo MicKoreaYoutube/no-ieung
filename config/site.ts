@@ -100,7 +100,7 @@ const siteConfig = {
       content: [
         {
           title: "11번 내용",
-          doc: "<p className='text-2xl'>시발</p>",
+          doc: "<p className='text-2xl p-20' id='test1'>시발</p><p className='text-2xl p-20' id='test2'>시발</p>",
           chapter: ["test1", "test2", "test3"]
         },
         {

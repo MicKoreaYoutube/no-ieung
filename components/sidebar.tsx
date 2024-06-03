@@ -155,7 +155,10 @@ export function ChapterSidebar({ items }: chapterSidebarInterface) {
               (item, index) => (
                 <TargetLink
                   key={index}
+                  activeClass="active"
                   to={`chapter-${item}`}
+                  spy={true}
+                  offset={50} 
                   className={`${selectedChapter == item ? "font-bold" : null} font-SUITE-Regular`} onClick={() => { selectChapter(item) }}
                   smooth={true}
                   duration={500}
