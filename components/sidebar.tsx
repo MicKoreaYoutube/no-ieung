@@ -119,6 +119,9 @@ export function DocsSidebar({ items }: docsSidebarInterface) {
     <>
       <ScrollArea className="h-[80vh] w-48">
         <div className="m-8">
+          <div className="py-4">
+            <Link href="/docs" className={`my-3 block text-lg ${decodeURI(pathName) == `/docs` ? "underline underline-offset-4" : "font-bold"} font-KBO-Dia-Gothic_bold`}>소개</Link>
+          </div>
           {items?.length ? (
             items.map(
               (item, index) => (
@@ -155,10 +158,8 @@ export function ChapterSidebar({ items }: chapterSidebarInterface) {
               (item, index) => (
                 <TargetLink
                   key={index}
-                  activeClass="active"
                   to={`chapter-${item}`}
-                  spy={true}
-                  offset={50} 
+                  offset={-65}
                   className={`${selectedChapter == item ? "font-bold" : null} font-SUITE-Regular`} onClick={() => { selectChapter(item) }}
                   smooth={true}
                   duration={500}
