@@ -1,3 +1,5 @@
+import { Description } from "@radix-ui/react-dialog"
+
 export type SiteConfig = typeof siteConfig
 
 const siteConfig = {
@@ -171,3 +173,23 @@ if (siteConfig.mainNav[0].mainLink) {
 
 export { siteConfig }
 
+const doc = [
+  {
+    title: "소개",
+    isDoc: true,
+    href: "/docs",
+    description: "기본 문서 페이지입니다.",
+    chapterList: [
+      
+    ]
+  }, 
+  {
+
+  }, 
+  {
+
+  }, 
+  {
+
+  }
+]
