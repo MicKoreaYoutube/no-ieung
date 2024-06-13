@@ -36,7 +36,7 @@ export default function Page() {
 
   const classToAdd = "animate__fadeInUp"
 
-  const [result, setResult] = useState("ㅝㄴ저ㅢ쌤 너무 ㅖ뻐ㅛ! 사라ㅗㅐㅛ♥")
+  const [result, setResult] = useState("ㅏㄴ녀ㅗㅏ세ㅛ! ㅣㅡ 제거를 바로 시도ㅗㅐ보세ㅛ!")
 
   const excludeIeungSchema = z.object({
     text: z.string({
@@ -47,7 +47,7 @@ export default function Page() {
   const form = useForm<z.infer<typeof excludeIeungSchema>>({
     resolver: zodResolver(excludeIeungSchema),
     defaultValues: {
-      text: "원정의쌤 너무 예뻐요! 사랑해요♥"
+      text: "안녕하세요! 이응 제거를 바로 시도해보세요!"
     }
   })
 
@@ -64,17 +64,17 @@ export default function Page() {
   const how_to_excludeIeung = `ㅣㅡㅡㄹ 제거ㅗㅏ는 바법!
                   
   1)기본적ㅣㄴ 바법
-  예뻐요♥ -> ㅖ뻐ㅛ♥
+  우와-> ㅜㅘ
   
   2)종성
-  원정의쌤♥ -> ㅝㄴ저ㅢ쌤♥
+  안녕 -> ㅏㄴ녀
   
   3)ㅎㅡㄴ?
-  사랑해요♥ -> 사라ㅗㅐㅛ♥(ㅎㅡㄹ ㅗ로 쓰면 됨. 그러나 해가 ㅗㅐㅣ듯ㅣ ㅣ "ㅗ"는 독립ㅗㅐ서 적ㅓㅑ ㅗㅏㅁ)
+  하이! -> ㅗㅏㅣ(ㅎㅡㄹ ㅗ로 쓰면 됨. 그러나 해가 ㅗㅐㅣ듯ㅣ ㅣ "ㅗ"는 독립ㅗㅐ서 적ㅓㅑ ㅗㅏㅁ)
   
   4)ㅇ, ㅎ 초서 독립 사ㅛㅡㄴ?
-  정의쌤 존예임 ㅇㅇ -> 저ㅢ쌤 존ㅖㅣㅁ ㅣㅡㅣㅡ
-  정의쌤 사랑해요ㅎㅎ -> 저ㅢ쌤 사라ㅗㅐㅛㅗㅣㅡㅗㅗㅣㅡㅗ`
+  ㅇㅇ -> ㅣㅡㅣㅡ
+  ㅎㅎ -> ㅗㅣㅡㅗㅗㅣㅡㅗ`
 
   return (
     <>
