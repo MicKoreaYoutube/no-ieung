@@ -146,8 +146,6 @@ export function DocsSidebar({ items }: docsSidebarInterface) {
 
 export function ChapterSidebar({ items }: chapterSidebarInterface) {
 
-  const [selectedChapter, selectChapter] = useState("")
-
   return (
     <div className="w-32">
       <div className="fixed w-full p-6">
