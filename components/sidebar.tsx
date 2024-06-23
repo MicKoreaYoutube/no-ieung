@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 
-import { dashboardSidebarItem, docsSidebarItem } from "@/types/sidebar"
+import { chapterSidebarItem, dashboardSidebarItem, docsSidebarItem } from "@/types/sidebar"
 
 // import { SearchDialog } from "@/components/search"
 import {
@@ -44,7 +44,7 @@ interface docsSidebarInterface {
 }
 
 interface chapterSidebarInterface {
-  items?: string[] | undefined
+  items?: chapterSidebarItem[]
 }
 
 export function DashboardSidebar({ items }: dashboardSidebarInterface) {
@@ -119,18 +119,18 @@ export function DocsSidebar({ items }: docsSidebarInterface) {
     <>
       <ScrollArea className="h-[80vh] w-48">
         <div className="m-8">
-          <div className="py-4">
-            <Link href="/docs" className={`my-3 block text-lg ${decodeURI(pathName) == `/docs` ? "underline underline-offset-4" : "font-bold"} font-KBO-Dia-Gothic_bold`}>소개</Link>
+          <div className="py-2">
+            <Link href="/docs" className={`font-KBO-Dia-Gothic_bold my-3 block text-lg ${(decodeURI(pathName) == "/docs") ? "underline underline-offset-4" : "font-bold"}`}>소개</Link>
           </div>
           {items?.length ? (
             items.map(
               (item, index) => (
-                <div key={index} className="py-4">
-                  <Link href={`${item.href ? `/docs/${item.title}` : "#"}`} className={`my-3 block text-lg ${decodeURI(pathName) == `/docs/${item.title}` ? "underline underline-offset-4" : "font-bold"} font-KBO-Dia-Gothic_bold`}>{item.title}</Link>
-                  {item.content?.length ? (
-                    item.content.map(
-                      (contentItem, contentIndex) => (
-                        <Link key={contentIndex} href={`/docs/${item.title}/${contentItem.title}`} className={`text-md my-1 block ${decodeURI(pathName) == `/docs/${item.title}/${contentItem.title}` ? "font-bold text-foreground underline underline-offset-4" : "text-muted-foreground"} font-SUITE-Regular`}>{contentItem.title}</Link>
+                <div key={index} className="py-2">
+                  <Link href={`${item.isDoc ? (item.id ? `/docs/${item.id}` : `/docs/${item.title}`) : "#"}`} className={`font-KBO-Dia-Gothic_bold my-3 block text-lg ${(decodeURI(pathName) == `/docs/${item.id}` || decodeURI(pathName) == `/docs/${item.title}`) ? "underline underline-offset-4" : "font-bold"}`}>{item.title}</Link>
+                  {item.subDocList?.length ? (
+                    item.subDocList.map(
+                      (subDocItem, subDocIndex) => (
+                        <Link key={subDocIndex} href={`${item.id ? `/docs/${item.id}/${subDocItem.title}` : `/docs/${item.title}/${subDocItem.title}`}`} className={`font-SUITE-Regular text-md my-1 block ${(decodeURI(pathName) == `/docs/${item.id}/${subDocItem.title}` || decodeURI(pathName) == `/docs/${item.title}/${subDocItem.title}`) ? "font-bold text-foreground underline underline-offset-4" : "text-muted-foreground"}`}>{subDocItem.title}</Link>
                       )
                     )
                   ) : null}
@@ -157,13 +157,16 @@ export function ChapterSidebar({ items }: chapterSidebarInterface) {
             items.map(
               (item, index) => (
                 <TargetLink
+                  activeClass="font-bold"
                   key={index}
-                  to={`chapter-${item}`}
-                  offset={-64}
-                  className={`${selectedChapter == item ? "font-bold" : null} font-SUITE-Regular cursor-pointer`} onClick={() => { selectChapter(item) }}
-                  smooth={true}
-                  duration={500}
-                >{item}</TargetLink>
+                  spy
+                  smooth
+                  isDynamic
+                  to={`chapter-${item.title}`}
+                  offset={-55}
+                  className="font-SUITE-Regular cursor-pointer"
+                  duration={700}
+                >{item.title}</TargetLink>
               )
             )
           ) : null}

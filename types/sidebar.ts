@@ -1,4 +1,3 @@
-import dynamicIconImports from 'lucide-react/dynamicIconImports'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 export interface dashboardSidebarItem {
@@ -18,12 +17,12 @@ export interface dashboardSidebarItem {
 export interface docsSidebarItem {
   title: string
   isDoc?: boolean
-  href?: string
+  id?: string
   description?: string
   chapterList: Array<{
     title: string
     content: string
-    subChapter?: Array<{
+    subChapterList?: Array<{
       title: string
       content: string
     }>
@@ -31,14 +30,18 @@ export interface docsSidebarItem {
   subDocList?: Array<{
     title: string
     description: string
-    href?: string
     chapterList: Array<{
       title: string
       content: string
-      subChapter?: Array<{
+      subChapterList?: Array<{
         title: string
         content: string
       }>
     }>
   }>
+}
+
+export interface chapterSidebarItem {
+  title: string
+  content: string
 }
