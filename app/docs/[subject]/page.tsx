@@ -31,7 +31,7 @@ export default function DocsSubjectPage({ params }: { params: { subject: string 
   return (
     <div className="flex flex-col-reverse justify-between md:flex-row">
       <div className="w-full justify-self-stretch p-6 md:p-12">
-        <div id="top" className="grid gap-2 py-4">
+        <div className="grid gap-2 py-4">
           <h1 className="font-KBO-Dia-Gothic_bold text-6xl">{foundDoc?.title}</h1>
           <span className="font-SUITE-Regular text-2xl">{foundDoc?.description}</span>
           <hr />
@@ -40,7 +40,7 @@ export default function DocsSubjectPage({ params }: { params: { subject: string 
           foundDoc.chapterList.map((chapterItem, chapterIndex) => (
             <div key={chapterIndex} id={`chapter-${chapterItem.title}`} className="grid gap-2 py-4">
               <h1 className="font-KBO-Dia-Gothic_bold text-4xl">{chapterItem.title}</h1>
-              <span className="font-SUITE-Regular text-lg">{chapterItem.content}</span>
+              <p className="font-SUITE-Regular text-lg">{chapterItem.content}</p>
             </div>
           ))
         ) : null}

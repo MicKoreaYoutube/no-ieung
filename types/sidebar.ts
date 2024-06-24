@@ -19,7 +19,7 @@ export interface docsSidebarItem {
   isDoc?: boolean
   id?: string
   description?: string
-  chapterList: Array<{
+  chapterList?: Array<{
     title: string
     content: string
     subChapterList?: Array<{

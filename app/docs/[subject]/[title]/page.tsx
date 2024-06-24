@@ -33,7 +33,7 @@ export default function DocsTitlePage({ params }: { params: { subject: string, t
           foundDoc.chapterList.map((chapterItem, chapterIndex) => (
             <div key={chapterIndex} id={`chapter-${chapterItem.title}`} className="grid gap-2 py-4">
               <h1 className="font-KBO-Dia-Gothic_bold text-4xl">{chapterItem.title}</h1>
-              <span className="font-SUITE-Regular text-lg">{chapterItem.content}</span>
+              <p className="font-SUITE-Regular text-lg">{chapterItem.content}</p>
             </div>
           ))
         ) : null}

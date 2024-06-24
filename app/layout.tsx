@@ -56,7 +56,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <SiteHeader />
               {children}
               <SiteFooter />
-              <MoverButton />
+              {/* <MoverButton /> */}
             </div>
             <TailwindIndicator />
           </ThemeProvider>
