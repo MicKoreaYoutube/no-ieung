@@ -126,11 +126,11 @@ export function DocsSidebar({ items }: docsSidebarInterface) {
             items.map(
               (item, index) => (
                 <div key={index} className="py-2">
-                  <Link href={`${item.isDoc ? (item.id ? `/docs/${item.id}` : `/docs/${item.title}`) : "#"}`} className={`font-KBO-Dia-Gothic_bold my-3 block text-lg ${(decodeURI(pathName) == `/docs/${item.id}` || decodeURI(pathName) == `/docs/${item.title}`) ? "underline underline-offset-4" : "font-bold"}`}>{item.title}</Link>
+                  <Link href={`${item.isDoc ? `/docs/${item.id ?? item.title}` : "#"}`} className={`font-KBO-Dia-Gothic_bold my-3 block text-lg ${(decodeURI(pathName) == `/docs/${item.id}` || decodeURI(pathName) == `/docs/${item.title}`) ? "underline underline-offset-4" : "font-bold"}`}>{item.title}</Link>
                   {item.subDocList?.length ? (
                     item.subDocList.map(
                       (subDocItem, subDocIndex) => (
-                        <Link key={subDocIndex} href={`${item.id ? `/docs/${item.id}/${subDocItem.title}` : `/docs/${item.title}/${subDocItem.title}`}`} className={`font-SUITE-Regular text-md my-1 block ${(decodeURI(pathName) == `/docs/${item.id}/${subDocItem.title}` || decodeURI(pathName) == `/docs/${item.title}/${subDocItem.title}`) ? "font-bold text-foreground underline underline-offset-4" : "text-muted-foreground"}`}>{subDocItem.title}</Link>
+                        <Link key={subDocIndex} href={`/docs/${item.id ?? item.title}/${subDocItem.id ?? subDocItem.title}`} className={`font-SUITE-Regular text-md my-1 block ${(decodeURI(pathName) == `/docs/${item.id}/${subDocItem.title}` || decodeURI(pathName) == `/docs/${item.title}/${subDocItem.title}`) ? "font-bold text-foreground underline underline-offset-4" : "text-muted-foreground"}`}>{subDocItem.title}</Link>
                       )
                     )
                   ) : null}
@@ -148,7 +148,7 @@ export function ChapterSidebar({ items }: chapterSidebarInterface) {
 
   return (
     <div className="w-32">
-      <div className="fixed w-full p-6">
+      <div className="fixed w-full py-6">
         <h1 className="font-KBO-Dia-Gothic_bold font-bold">Chapter</h1>
         <div className="flex flex-col">
           {items?.length ? (

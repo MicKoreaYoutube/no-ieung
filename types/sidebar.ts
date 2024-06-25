@@ -29,6 +29,7 @@ export interface docsSidebarItem {
   }>
   subDocList?: Array<{
     title: string
+    id?: string
     description: string
     chapterList: Array<{
       title: string
